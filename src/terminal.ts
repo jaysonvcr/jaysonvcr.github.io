@@ -20,7 +20,7 @@ const commands: Record<string, CommandFn> = {
     '  sudo        try it and see',
     '  clear       clear the terminal',
   ],
-  whoami: () => ['your-name', 'Software Developer - Backend'],
+  whoami: () => ['jayson-vacaro', 'Senior Software Developer'],
   about: () => [
     'I like building things that hold up under real traffic.',
     'APIs, pipelines, and the unglamorous plumbing in between.',
@@ -39,11 +39,11 @@ const commands: Record<string, CommandFn> = {
     return ['Scrolling to tech stack...']
   },
   github: () => {
-    window.open('https://github.com/', '_blank', 'noopener')
+    window.open('https://github.com/jaysonvcr', '_blank', 'noopener')
     return ['Opening GitHub...']
   },
   linkedin: () => {
-    window.open('https://linkedin.com/', '_blank', 'noopener')
+    window.open('https://www.linkedin.com/in/jaysonvacaro/', '_blank', 'noopener')
     return ['Opening LinkedIn...']
   },
   resume: () => {
@@ -80,7 +80,7 @@ export function terminalHtml(): string {
             <span class="h-3 w-3 rounded-full bg-yellow-500/70"></span>
             <span class="h-3 w-3 rounded-full bg-green-500/70"></span>
           </div>
-          <span class="font-mono text-xs text-[var(--text-mute)]">guest@your-name.dev</span>
+          <span class="font-mono text-xs text-[var(--text-mute)]">guest@jaysonvcr.dev</span>
           <button id="terminal-close" type="button" aria-label="Close terminal" class="text-[var(--text-mute)] hover:text-[var(--text)]">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
               <path d="M18 6 6 18"></path>
