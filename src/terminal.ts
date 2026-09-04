@@ -62,7 +62,7 @@ export function terminalHtml(): string {
     <button
       id="terminal-launch"
       type="button"
-      class="fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full border border-emerald-400/40 bg-neutral-950/90 px-4 py-3 font-mono text-sm text-emerald-400 shadow-lg backdrop-blur transition hover:bg-emerald-400/10"
+      class="fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full border border-emerald-500/40 bg-[var(--panel-translucent-strong)] px-4 py-3 font-mono text-sm text-emerald-600 shadow-lg backdrop-blur transition hover:bg-emerald-500/10 dark:border-emerald-400/40 dark:text-emerald-400 dark:hover:bg-emerald-400/10"
       aria-label="Launch Terminal"
       title="Launch Terminal"
     >
@@ -71,17 +71,17 @@ export function terminalHtml(): string {
 
     <div
       id="terminal-overlay"
-      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-[var(--backdrop)] p-4 backdrop-blur-sm"
     >
-      <div class="flex h-[70vh] w-full max-w-2xl flex-col overflow-hidden rounded-lg border border-white/10 bg-neutral-950 shadow-2xl">
-        <div class="flex items-center justify-between border-b border-white/10 bg-white/5 px-4 py-2">
+      <div class="flex h-[70vh] w-full max-w-2xl flex-col overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--panel)] shadow-2xl">
+        <div class="flex items-center justify-between border-b border-[var(--border)] bg-[var(--bg-soft)] px-4 py-2">
           <div class="flex gap-1.5">
             <span class="h-3 w-3 rounded-full bg-red-500/70"></span>
             <span class="h-3 w-3 rounded-full bg-yellow-500/70"></span>
             <span class="h-3 w-3 rounded-full bg-green-500/70"></span>
           </div>
-          <span class="font-mono text-xs text-neutral-500">guest@your-name.dev</span>
-          <button id="terminal-close" type="button" aria-label="Close terminal" class="text-neutral-500 hover:text-neutral-200">
+          <span class="font-mono text-xs text-[var(--text-mute)]">guest@your-name.dev</span>
+          <button id="terminal-close" type="button" aria-label="Close terminal" class="text-[var(--text-mute)] hover:text-[var(--text)]">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
               <path d="M18 6 6 18"></path>
               <path d="m6 6 12 12"></path>
@@ -89,21 +89,21 @@ export function terminalHtml(): string {
           </button>
         </div>
 
-        <div id="terminal-output" class="flex-1 space-y-1 overflow-y-auto px-4 py-3 font-mono text-sm text-neutral-300">
-          <p class="text-emerald-400">Welcome. Type 'help' to see what's available.</p>
+        <div id="terminal-output" class="flex-1 space-y-1 overflow-y-auto px-4 py-3 font-mono text-sm text-[var(--text-soft)]">
+          <p class="text-emerald-600 dark:text-emerald-400">Welcome. Type 'help' to see what's available.</p>
         </div>
 
-        <form id="terminal-form" class="flex items-center gap-2 border-t border-white/10 px-4 py-3 font-mono text-sm">
-          <span class="text-emerald-400">$</span>
+        <form id="terminal-form" class="flex items-center gap-2 border-t border-[var(--border)] px-4 py-3 font-mono text-sm">
+          <span class="text-emerald-600 dark:text-emerald-400">$</span>
           <input
             id="terminal-input"
             type="text"
             autocomplete="off"
             spellcheck="false"
-            class="flex-1 bg-transparent text-neutral-200 outline-none"
+            class="flex-1 bg-transparent text-[var(--text)] outline-none"
             aria-label="Terminal command input"
           />
-          <span class="terminal-caret text-emerald-400">_</span>
+          <span class="terminal-caret text-emerald-600 dark:text-emerald-400">_</span>
         </form>
       </div>
     </div>
@@ -145,7 +145,7 @@ export function initTerminal() {
   const printLine = (text: string, isCommand = false) => {
     const line = document.createElement('p')
     line.textContent = isCommand ? `$ ${text}` : text
-    line.className = `whitespace-pre-wrap ${isCommand ? 'text-neutral-500' : ''}`
+    line.className = `whitespace-pre-wrap ${isCommand ? 'text-[var(--text-mute)]' : ''}`
     output.appendChild(line)
     output.scrollTop = output.scrollHeight
   }

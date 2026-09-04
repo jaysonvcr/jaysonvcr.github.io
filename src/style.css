@@ -2,20 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg: #fafafa;
+  --bg-soft: rgb(0 0 0 / 0.04);
+  --panel: #ffffff;
+  --panel-translucent: rgb(255 255 255 / 0.7);
+  --panel-translucent-strong: rgb(255 255 255 / 0.9);
+  --backdrop: rgb(0 0 0 / 0.4);
+  --text: #18181b;
+  --text-soft: #52525b;
+  --text-mute: #71717a;
+  --border: rgb(0 0 0 / 0.1);
+  --border-strong: rgb(0 0 0 / 0.25);
+  --grid-line: rgb(0 0 0 / 0.05);
+  --selection-bg: rgb(16 185 129 / 0.25);
+  --selection-text: #065f46;
+}
+
+:root.dark {
+  --bg: #0a0a0a;
+  --bg-soft: rgb(255 255 255 / 0.05);
+  --panel: #0a0a0a;
+  --panel-translucent: rgb(10 10 10 / 0.7);
+  --panel-translucent-strong: rgb(10 10 10 / 0.9);
+  --backdrop: rgb(0 0 0 / 0.6);
+  --text: #f5f5f5;
+  --text-soft: #a3a3a3;
+  --text-mute: #737373;
+  --border: rgb(255 255 255 / 0.1);
+  --border-strong: rgb(255 255 255 / 0.3);
+  --grid-line: rgb(255 255 255 / 0.04);
+  --selection-bg: rgb(16 185 129 / 0.3);
+  --selection-text: #d1fae5;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  @apply bg-neutral-950 text-neutral-200 antialiased;
+  background-color: var(--bg);
+  color: var(--text-soft);
+  -webkit-font-smoothing: antialiased;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 40px 40px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ::selection {
-  @apply bg-emerald-500/30 text-emerald-100;
+  background-color: var(--selection-bg);
+  color: var(--selection-text);
 }
 
 /* reveal-on-scroll */
@@ -35,7 +73,10 @@ body {
 }
 
 .gradient-text {
-  @apply bg-gradient-to-r from-emerald-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-emerald-600 via-cyan-600 to-emerald-600 bg-clip-text text-transparent;
+}
+.dark .gradient-text {
+  @apply from-emerald-400 via-cyan-400 to-emerald-400;
 }
 
 /* terminal */

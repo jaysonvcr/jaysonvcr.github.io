@@ -6,6 +6,7 @@ import { techStackHtml } from './sections/techstack.ts'
 import { contactHtml } from './sections/contact.ts'
 import { terminalHtml, initTerminal } from './terminal.ts'
 import { initScrollReveal } from './scrollReveal.ts'
+import { initTheme } from './theme.ts'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   ${navbarHtml()}
@@ -18,6 +19,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   ${terminalHtml()}
 `
 
+initTheme()
 initNavbar()
 initHero()
 initTerminal()
