@@ -10,21 +10,8 @@ export function heroHtml(): string {
       <div class="reveal relative z-10 flex flex-col items-center">
         <p class="mb-4 font-mono text-sm text-emerald-600 dark:text-emerald-400">Hi, my name is</p>
 
-        <h1 class="flex items-center gap-3 text-4xl font-bold tracking-tight sm:text-6xl">
+        <h1 class="text-4xl font-bold tracking-tight sm:text-6xl">
           <span class="gradient-text">Jayson Vacaro</span>
-          <button
-            id="pronounce-name"
-            type="button"
-            class="rounded-full border border-[var(--border)] p-2 text-[var(--text-mute)] transition hover:border-emerald-400/50 hover:text-emerald-600 dark:hover:text-emerald-400"
-            aria-label="Listen to name pronunciation"
-            title="Listen to name pronunciation"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
-              <path d="M11 5 6 9H2v6h4l5 4z"></path>
-              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-            </svg>
-          </button>
         </h1>
 
         <h2 class="mt-3 text-xl font-medium text-[var(--text-soft)] sm:text-2xl">Senior Software Developer</h2>
@@ -74,14 +61,6 @@ export function heroHtml(): string {
 }
 
 export function initHero() {
-  const btn = document.querySelector<HTMLButtonElement>('#pronounce-name')
-  btn?.addEventListener('click', () => {
-    if (!('speechSynthesis' in window)) return
-    const utterance = new SpeechSynthesisUtterance('Jayson Vacaro')
-    window.speechSynthesis.cancel()
-    window.speechSynthesis.speak(utterance)
-  })
-
   document.querySelector<HTMLButtonElement>('#scroll-down')?.addEventListener('click', () => {
     document.querySelector('#experience')?.scrollIntoView({ behavior: 'smooth' })
   })
