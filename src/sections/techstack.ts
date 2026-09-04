@@ -17,21 +17,21 @@ const skills: Skill[] = [
 export function techStackHtml(): string {
   return `
     <section id="stack" class="mx-auto max-w-3xl px-6 py-24">
-      <h2 class="reveal font-mono text-sm uppercase tracking-widest text-cyan-400">Tech Stack</h2>
-      <p class="reveal mt-2 text-2xl font-semibold text-neutral-100">Tools I reach for</p>
-      <p class="reveal mt-1 text-sm text-neutral-500">Hover to see proficiency</p>
+      <h2 class="reveal font-mono text-sm uppercase tracking-widest text-cyan-600 dark:text-cyan-400">Tech Stack</h2>
+      <p class="reveal mt-2 text-2xl font-semibold text-[var(--text)]">Tools I reach for</p>
+      <p class="reveal mt-1 text-sm text-[var(--text-mute)]">Hover to see proficiency</p>
 
       <div class="reveal mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3">
         ${skills
           .map(
             (s) => `
           <div
-            class="stack-chip group relative overflow-hidden rounded-lg border border-white/10 bg-white/5 px-4 py-3 font-mono text-sm text-neutral-300 transition hover:border-cyan-400/40"
+            class="stack-chip group relative overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--bg-soft)] px-4 py-3 font-mono text-sm text-[var(--text-soft)] transition hover:border-cyan-400/40"
             style="--proficiency: ${s.proficiency}%"
             tabindex="0"
           >
             <span class="relative z-10">${s.name}</span>
-            <span class="proficiency-fill pointer-events-none absolute inset-y-0 left-0 bg-cyan-400/15"></span>
+            <span class="proficiency-fill pointer-events-none absolute inset-y-0 left-0 bg-cyan-500/15 dark:bg-cyan-400/15"></span>
           </div>
         `
           )
