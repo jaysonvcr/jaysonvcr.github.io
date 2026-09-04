@@ -51,11 +51,19 @@ export function navbarHtml(): string {
         <button
           id="mobile-menu-toggle"
           type="button"
-          class="font-mono text-sm text-[var(--text-soft)] sm:hidden"
+          class="rounded-md p-2 text-[var(--text-soft)] transition hover:text-emerald-600 dark:hover:text-emerald-400 sm:hidden"
           aria-label="Toggle mobile menu"
           aria-expanded="false"
         >
-          [ menu ]
+          <svg id="menu-icon-open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+            <path d="M4 6h16"></path>
+            <path d="M4 12h16"></path>
+            <path d="M4 18h16"></path>
+          </svg>
+          <svg id="menu-icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden h-5 w-5">
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+          </svg>
         </button>
       </nav>
 
@@ -74,13 +82,16 @@ export function navbarHtml(): string {
 export function initNavbar() {
   const toggle = document.querySelector<HTMLButtonElement>('#mobile-menu-toggle')
   const menu = document.querySelector<HTMLUListElement>('#mobile-menu')
-  if (!toggle || !menu) return
+  const openIcon = document.querySelector<SVGElement>('#menu-icon-open')
+  const closeIcon = document.querySelector<SVGElement>('#menu-icon-close')
+  if (!toggle || !menu || !openIcon || !closeIcon) return
 
   const setOpen = (open: boolean) => {
     menu.classList.toggle('hidden', !open)
     menu.classList.toggle('flex', open)
     toggle.setAttribute('aria-expanded', String(open))
-    toggle.textContent = open ? '[ close ]' : '[ menu ]'
+    openIcon.classList.toggle('hidden', open)
+    closeIcon.classList.toggle('hidden', !open)
   }
 
   toggle.addEventListener('click', () => {
