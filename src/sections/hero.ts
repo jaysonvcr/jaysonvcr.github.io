@@ -11,7 +11,7 @@ export function heroHtml(): string {
         <p class="mb-4 font-mono text-sm text-emerald-600 dark:text-emerald-400">Hi, my name is</p>
 
         <h1 class="flex items-center gap-3 text-4xl font-bold tracking-tight sm:text-6xl">
-          <span class="gradient-text">Your Name</span>
+          <span class="gradient-text">Jayson Vacaro</span>
           <button
             id="pronounce-name"
             type="button"
@@ -27,7 +27,7 @@ export function heroHtml(): string {
           </button>
         </h1>
 
-        <h2 class="mt-3 text-xl font-medium text-[var(--text-soft)] sm:text-2xl">Software Developer &mdash; Backend</h2>
+        <h2 class="mt-3 text-xl font-medium text-[var(--text-soft)] sm:text-2xl">Senior Software Developer</h2>
 
         <p class="mt-6 max-w-xl text-[var(--text-soft)]">
           I like building things that hold up under real traffic &mdash; APIs, pipelines, and the
@@ -77,7 +77,7 @@ export function initHero() {
   const btn = document.querySelector<HTMLButtonElement>('#pronounce-name')
   btn?.addEventListener('click', () => {
     if (!('speechSynthesis' in window)) return
-    const utterance = new SpeechSynthesisUtterance('Your Name')
+    const utterance = new SpeechSynthesisUtterance('Jayson Vacaro')
     window.speechSynthesis.cancel()
     window.speechSynthesis.speak(utterance)
   })

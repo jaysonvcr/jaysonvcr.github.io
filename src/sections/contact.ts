@@ -21,7 +21,7 @@ export function contactHtml(): string {
             Email me
           </a>
           <a
-            href="https://github.com/"
+            href="https://github.com/jaysonvcr"
             target="_blank"
             rel="noopener"
             class="rounded-md border border-[var(--border)] px-6 py-3 font-mono text-sm text-[var(--text-soft)] transition hover:border-[var(--border-strong)]"
@@ -30,7 +30,7 @@ export function contactHtml(): string {
             GitHub
           </a>
           <a
-            href="https://linkedin.com/"
+            href="https://www.linkedin.com/in/jaysonvacaro/"
             target="_blank"
             rel="noopener"
             class="rounded-md border border-[var(--border)] px-6 py-3 font-mono text-sm text-[var(--text-soft)] transition hover:border-[var(--border-strong)]"
@@ -43,7 +43,7 @@ export function contactHtml(): string {
     </section>
 
     <footer class="border-t border-[var(--border)] px-6 py-8 text-center font-mono text-xs text-[var(--text-mute)]">
-      <p>&copy; ${new Date().getFullYear()} Your Name. Built with Vite + TypeScript.</p>
+      <p>&copy; ${new Date().getFullYear()} Jayson Vacaro. Built with Vite + TypeScript.</p>
     </footer>
   `
 }
