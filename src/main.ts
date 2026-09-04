@@ -1,39 +1,24 @@
 import './style.css'
+import { navbarHtml, initNavbar } from './sections/navbar.ts'
+import { heroHtml, initHero } from './sections/hero.ts'
+import { experienceHtml } from './sections/experience.ts'
+import { techStackHtml } from './sections/techstack.ts'
+import { contactHtml } from './sections/contact.ts'
+import { terminalHtml, initTerminal } from './terminal.ts'
+import { initScrollReveal } from './scrollReveal.ts'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <header class="site-header">
-    <span class="brand">Your Name</span>
-    <nav>
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
+  ${navbarHtml()}
   <main>
-    <section class="hero">
-      <h1>Hi, I'm Your Name.</h1>
-      <p>I build things for the web. This is my portfolio.</p>
-      <a class="cta" href="#projects">See my work</a>
-    </section>
-
-    <section id="projects" class="projects">
-      <h2>Projects</h2>
-      <p class="placeholder">Project cards go here.</p>
-    </section>
-
-    <section id="about" class="about">
-      <h2>About</h2>
-      <p class="placeholder">A short bio goes here.</p>
-    </section>
-
-    <section id="contact" class="contact">
-      <h2>Contact</h2>
-      <p class="placeholder">Links to email, GitHub, LinkedIn, etc.</p>
-    </section>
+    ${heroHtml()}
+    ${experienceHtml()}
+    ${techStackHtml()}
+    ${contactHtml()}
   </main>
-
-  <footer class="site-footer">
-    <p>&copy; ${new Date().getFullYear()} Your Name</p>
-  </footer>
+  ${terminalHtml()}
 `
+
+initNavbar()
+initHero()
+initTerminal()
+initScrollReveal()
